@@ -19,7 +19,7 @@ public class Repository {
 
     public void removeById(int id) {
         Product[] result = new Product[0];
-        int i=0;
+        int i = 0;
         for (Product item : items) {
             if (item.getId() != id) {
                 Product[] tmp = new Product[i + 1];

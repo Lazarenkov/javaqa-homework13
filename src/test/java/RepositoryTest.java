@@ -6,12 +6,12 @@ import ru.netology.javaqa.products.Repository;
 import ru.netology.javaqa.products.Smartphone;
 
 public class RepositoryTest {
-    Repository repo=new Repository();
+    Repository repo = new Repository();
 
 
     @Test
-    public void shouldSaveItemBook(){
-        Product book=new Book(12,"Роман", 300,"Три сестры", "А.П.Чехов");
+    public void shouldSaveItemBook() {
+        Product book = new Book(12, "Роман", 300, "Три сестры", "А.П.Чехов");
         repo.save(book);
         Product[] expected = {book};
         Product[] actual = repo.getItems();
@@ -19,8 +19,8 @@ public class RepositoryTest {
     }
 
     @Test
-    public void shouldSaveItemSmartphone(){
-        Product smartphone=new Smartphone(2,"iPhone", 100000,"iPhone 14", "Apple");
+    public void shouldSaveItemSmartphone() {
+        Product smartphone = new Smartphone(2, "iPhone", 100000, "iPhone 14", "Apple");
         repo.save(smartphone);
         Product[] expected = {smartphone};
         Product[] actual = repo.getItems();
@@ -28,20 +28,20 @@ public class RepositoryTest {
     }
 
     @Test
-    public void shouldSaveSeveralItems(){
-        Product book=new Book(212,"Учебник", 300,"Тестирование.com", "Роман Савин");
-        Product smartphone=new Smartphone(55,"Android", 70000,"Galaxy S22", "Samsung");
+    public void shouldSaveSeveralItems() {
+        Product book = new Book(212, "Учебник", 300, "Тестирование.com", "Роман Савин");
+        Product smartphone = new Smartphone(55, "Android", 70000, "Galaxy S22", "Samsung");
         repo.save(book);
         repo.save(smartphone);
-        Product[] expected = {book,smartphone};
+        Product[] expected = {book, smartphone};
         Product[] actual = repo.getItems();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void  shouldRemoveItemIfIdMatching(){
-        Product book=new Book(212,"Учебник", 300,"Тестирование.com", "Роман Савин");
-        Product smartphone=new Smartphone(55,"Android", 70000,"Galaxy S22", "Samsung");
+    public void shouldRemoveItemIfIdMatching() {
+        Product book = new Book(212, "Учебник", 300, "Тестирование.com", "Роман Савин");
+        Product smartphone = new Smartphone(55, "Android", 70000, "Galaxy S22", "Samsung");
         repo.save(book);
         repo.save(smartphone);
         repo.removeById(212);
@@ -51,21 +51,21 @@ public class RepositoryTest {
     }
 
     @Test
-    public void shouldNotRemoveItemsIfNoIdMatching(){
-        Product book=new Book(212,"Учебник", 300,"Тестирование.com", "Роман Савин");
-        Product smartphone=new Smartphone(55,"Android", 70000,"Galaxy S22", "Samsung");
+    public void shouldNotRemoveItemsIfNoIdMatching() {
+        Product book = new Book(212, "Учебник", 300, "Тестирование.com", "Роман Савин");
+        Product smartphone = new Smartphone(55, "Android", 70000, "Galaxy S22", "Samsung");
         repo.save(book);
         repo.save(smartphone);
         repo.removeById(100);
-        Product[] expected = {book,smartphone};
+        Product[] expected = {book, smartphone};
         Product[] actual = repo.getItems();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldGetId(){
-        Product book=new Book(212,"Учебник", 300,"Тестирование.com", "Роман Савин");
-        Product smartphone=new Smartphone(55,"Android", 70000,"Galaxy S22", "Samsung");
+    public void shouldGetId() {
+        Product book = new Book(212, "Учебник", 300, "Тестирование.com", "Роман Савин");
+        Product smartphone = new Smartphone(55, "Android", 70000, "Galaxy S22", "Samsung");
         repo.save(book);
         repo.save(smartphone);
         int expected = 55;
@@ -74,9 +74,9 @@ public class RepositoryTest {
     }
 
     @Test
-    public void shouldGetName(){
-        Product book=new Book(212,"Учебник", 300,"Тестирование.com", "Роман Савин");
-        Product smartphone=new Smartphone(55,"Android", 70000,"Galaxy S22", "Samsung");
+    public void shouldGetName() {
+        Product book = new Book(212, "Учебник", 300, "Тестирование.com", "Роман Савин");
+        Product smartphone = new Smartphone(55, "Android", 70000, "Galaxy S22", "Samsung");
         repo.save(book);
         repo.save(smartphone);
         String expected = "Учебник";
