@@ -36,6 +36,16 @@ public class ManagerTest {
     }
 
     @Test
+    public void shouldThrowExceptionWhenAddItemWithAlreadyExistingID() {
+        Product book = new Book(2, "Учебник", 300, "Тестирование.com", "Роман Савин");
+        Product smartphone = new Smartphone(2, "Android", 70000, "Galaxy S22", "Samsung");
+        manager.add(book);
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            manager.add(smartphone);
+        });
+    }
+
+    @Test
     public void shouldReturnMatchesIfOneMatch() {
         Product book = new Book(212, "Учебник", 300, "Тестирование.com", "Роман Савин");
         Product smartphone = new Smartphone(55, "Android", 70000, "Galaxy S22", "Samsung");
