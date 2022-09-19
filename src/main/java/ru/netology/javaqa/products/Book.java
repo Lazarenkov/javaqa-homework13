@@ -2,8 +2,8 @@ package ru.netology.javaqa.products;
 
 public class Book extends Product {
 
-    String title;
-    String author;
+    private String title;
+    private String author;
 
     public Book(int id, String name, long price, String title, String author) {
         super(id, name, price);

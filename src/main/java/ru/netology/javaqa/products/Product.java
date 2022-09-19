@@ -2,11 +2,11 @@ package ru.netology.javaqa.products;
 
 public class Product {
 
-    int id;
-    String name;
-    long price;
+    protected int id;
+    protected String name;
+    protected long price;
 
-    public Product(int id, String name, long price) {
+    protected Product(int id, String name, long price) {
         this.id = id;
         this.name = name;
         this.price = price;
